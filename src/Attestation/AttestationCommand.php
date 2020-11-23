@@ -11,8 +11,6 @@ class AttestationCommand
     public function __construct()
     {
         $this->date = new \DateTime();
-        // Let’s say you did that 10 minutes ago, ok ?
-        $this->date->sub(new \DateInterval('PT10M'));
     }
 
     /**
@@ -23,5 +21,15 @@ class AttestationCommand
     /**
      * @Assert\NotBlank
      */
-    public \DateTime $date;
+    private \DateTime $date;
+
+    public \DateInterval $offset;
+
+    public function getDate()
+    {
+        $date = clone $this->date;
+        $date->sub($this->offset);
+
+        return $date;
+    }
 }

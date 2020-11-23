@@ -74,7 +74,7 @@ class AttestationHandler
         $pdf->SetY($y);
         $txt = sprintf("Fait à : %s", $attestationCommand->userData->city);
         $pdf->Write(0, $txt, '', 0, 'L', true);
-        $txt = sprintf("Le : %s", $attestationCommand->date->format('d/m/Y à H:i'));
+        $txt = sprintf("Le : %s", $attestationCommand->getDate()->format('d/m/Y à H:i'));
         $pdf->Write(0, $txt, '', 0, 'L', true);
         $txt = "(Date et heure de début de sortie à mentionner obligatoirement)";
         $pdf->Write(0, $txt, '', 0, 'L', true);

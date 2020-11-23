@@ -20,7 +20,7 @@ class AttestationQRCode
             $this->twig->render('attestation-text.html.twig', [
                 'user_data' => $attestationCommand->userData->normalize(),
                 'justifications' => $attestationCommand->justifications,
-                'date' => $attestationCommand->date,
+                'date' => $attestationCommand->getDate(),
             ])
         );
     }
